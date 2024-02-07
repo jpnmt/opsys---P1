@@ -12,12 +12,13 @@ int s = 0; //maximum simultaneous child processes in the system
 int m = 0; // total children launched so far 
 int sc = 0; //current simutaneous children
 
+int t = 0; //number of iterations
 int done = 0;
 
 
 int opt;
 
-while ((opt = getopt(argc, argv, "n:s:")) != -1) {
+while ((opt = getopt(argc, argv, "n:s:t:")) != -1) {
 	switch(opt) {
 		case 'n':
 			n = atoi(optarg);
@@ -33,6 +34,9 @@ while ((opt = getopt(argc, argv, "n:s:")) != -1) {
 		    	    exit(EXIT_FAILURE);		    
 			}
 			break;
+		case 't':
+			t = atoi(optarg);
+			break;	
 		default:
 			fprintf(stderr, "Usage: %s -n <n> -s <s>\n", argv[0]);
 			exit(EXIT_FAILURE);
@@ -45,7 +49,8 @@ while (!done) {
 				and total launched is greater than what has been launched so far */
 		int c = fork(); //launch child
 		if (c == 0) {
-		char *args[] = {"./oss", "-n", argv[2], "-s", argv[4], NULL};	
+		//char *args[] = {./oss, -n, argv], -s, argv[], NULL};
+		char *args[] = {"./user", argv[2], NULL};
 		execvp(args[0], args);
 		//printf(If you can read this, the Exec has failed\n);
 		perror("execvp");

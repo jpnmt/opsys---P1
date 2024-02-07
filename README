@@ -1,0 +1,15 @@
+Hello and welcome to this program that launches child processes from a parent process. 
+
+Now I will tell you how to run it:
+
+Step 1) Ensure that you have 3 files: user.c opp.c and makefile 
+
+Step 2) Type "make" (no quotes) and a bunch of lines will generate from the makefile itself, if you see these it's a good sign, 
+but you don't need to do anything with them
+
+Step 3) Assuming all is working well, you should type "./oss -n (number 1-18) -s (number 1-18) -t (number).
+n is the total number of child processes you want the system to launch
+s is how many child processes at one time you want to allow for the system
+t is the number of iterations you want the loop to perform
+
+Please redirect any questions or conserns to jpnmt@umsystem.edu
